@@ -15,7 +15,7 @@ public class DefaultPageController : PageControllerBase<SitePageData>
         return View($"~/Views/{currentPage.GetOriginalType().Name}/Index.cshtml", model);
     }
 
-    private static IPageViewModel<SitePageData>? CreateModel(SitePageData page)
+    private static IPageViewModel<SitePageData> CreateModel(SitePageData page)
     {
         var type = typeof(PageViewModel<>).MakeGenericType(page.GetOriginalType());
         return Activator.CreateInstance(type, page) as IPageViewModel<SitePageData>;
