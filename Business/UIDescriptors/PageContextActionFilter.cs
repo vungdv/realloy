@@ -1,6 +1,7 @@
 using EPiServer.Data;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using realloy.Models.Pages;
@@ -12,11 +13,16 @@ public class PageContextActionFilter : IResultFilter
 {
     private readonly IContentLoader _contentLoader;
     private readonly IDatabaseMode _databaseMode;
+    private readonly IUrlResolver _urlResolver;
 
-    public PageContextActionFilter(IContentLoader contentLoader, IDatabaseMode databaseMode)
+    public PageContextActionFilter(
+        IContentLoader contentLoader,
+        IDatabaseMode databaseMode,
+        IUrlResolver urlResolver)
     {
         _contentLoader = contentLoader;
         _databaseMode = databaseMode;
+        _urlResolver = urlResolver;
     }
 
     public void OnResultExecuting(ResultExecutingContext context)
@@ -27,8 +33,21 @@ public class PageContextActionFilter : IResultFilter
         if (viewModel is IPageViewModel<SitePageData> model)
         {
             var currentContentLink = context.HttpContext.GetContentLink();
+            var startPageContentLink = SiteDefinition.Current.StartPage;
+
+            // Use the content link with version information when editing the startpage,
+            // otherwise the published version will be used when rendering the props below.
+            if (currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
+            {
+                startPageContentLink = currentContentLink;
+            }
+
+            var startPage = _contentLoader.Get<StartPage>(startPageContentLink);
+
             model.Layout = new LayoutModel
             {
+                LogoType = startPage.SiteLogoType,
+                LogoTypeLinkUrl = new HtmlString(_urlResolver.GetUrl(startPageContentLink)),
                 IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
             };
             model.Section ??= ((SitePageData)GetSection(currentContentLink));

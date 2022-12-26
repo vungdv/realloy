@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using realloy.Models.Blocks;
 
 namespace realloy.Models.Pages;
 
@@ -26,4 +27,8 @@ public class StartPage: SitePageData
         Order = 320)]
     [CultureSpecific]
     public virtual ContentArea MainContentArea { get; set; }
+    [Display(
+        GroupName = SystemTabNames.Settings,
+        Order = 330)]
+    public virtual SiteLogoTypeBlock SiteLogoType {get;set;}
 }
