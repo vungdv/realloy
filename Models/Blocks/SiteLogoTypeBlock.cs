@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using EPiServer.Shell.ObjectEditing;
 using EPiServer.Web;
 
 namespace realloy.Models.Blocks;
@@ -6,11 +7,11 @@ namespace realloy.Models.Blocks;
 [SiteContentType(GUID = "0511a013-0ab7-47a8-a5b9-5313a3cf9914")]
 public class SiteLogoTypeBlock : SiteBlockData
 {
-    // [Display(
-    //     Name = "Site logo",
-    //     Description = "Site logo",
-    //     GroupName = SystemTabNames.Content,
-    //     Order = 10)]
+    /// <summary>
+    /// Gets the site logotype URL
+    /// </summary>
+    /// <remarks>If not specified a default logotype will be used</remarks>
+    // [DefaultDragAndDropTarget]
     [UIHint(UIHint.Image)]
     public virtual Url Url
     {
