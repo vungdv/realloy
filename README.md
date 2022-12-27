@@ -37,3 +37,12 @@ Create an empty database on the external database server and update the connecti
 ```bash
 $ dotnet run
 ````
+
+### Performance Test 
+Prerequisities
+- Has https://k6.io installed on your machine
+
+In the folder LoadTest run below cmd:
+```bash
+k6 run homepage.js
+```
