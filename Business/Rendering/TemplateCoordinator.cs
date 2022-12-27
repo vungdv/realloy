@@ -1,13 +1,13 @@
 // using EPiServer.ServiceLocation;
 // using realloy.Controllers;
-// // using realloy.Models.Blocks;
+// using realloy.Models.Blocks;
 // using realloy.Models.Pages;
 // using EPiServer.Web;
 // using EPiServer.Web.Mvc;
 
 // namespace realloy.Business.Rendering;
 
-// [ServiceConfiguration(typeof(IViewTemplateModelRegistrator))]
+// // [ServiceConfiguration(typeof(IViewTemplateModelRegistrator))]
 // public class TemplateCoordinator : IViewTemplateModelRegistrator
 // {
 //     public const string BlockFolder = "~/Views/Shared/Blocks/";
@@ -37,12 +37,12 @@
 //     /// </remarks>
 //     public void Register(TemplateModelCollection viewTemplateModelRegistrator)
 //     {
-//         // viewTemplateModelRegistrator.Add(typeof(TeaserBlock), new TemplateModel
-//         // {
-//         //     Name = "TeaserBlockWide",
-//         //     Tags = new[] { Globals.ContentAreaTags.WideWidth, Globals.ContentAreaTags.FullWidth },
-//         //     AvailableWithoutTag = false,
-//         // });
+//         viewTemplateModelRegistrator.Add(typeof(TeaserBlock), new TemplateModel
+//         {
+//             Name = "TeaserBlockWide",
+//             Tags = new[] { Globals.ContentAreaTags.WideWidth, Globals.ContentAreaTags.FullWidth },
+//             AvailableWithoutTag = false,
+//         });
 
 //         viewTemplateModelRegistrator.Add(typeof(SitePageData), new TemplateModel
 //         {
@@ -61,18 +61,17 @@
 //             Path = PagePartialPath("PageWide.cshtml")
 //         });
 
-//         // viewTemplateModelRegistrator.Add(typeof(IContentData), new TemplateModel
-//         // {
-//         //     Name = "NoRenderer",
-//         //     Inherit = true,
-//         //     Tags = new[] { Globals.ContentAreaTags.NoRenderer },
-//         //     AvailableWithoutTag = false,
-//         //     Path = BlockPath("NoRenderer.cshtml")
-//         // });
+//         viewTemplateModelRegistrator.Add(typeof(IContentData), new TemplateModel
+//         {
+//             Name = "NoRenderer",
+//             Inherit = true,
+//             Tags = new[] { Globals.ContentAreaTags.NoRenderer },
+//             AvailableWithoutTag = false,
+//             Path = BlockPath("NoRenderer.cshtml")
+//         });
 //     }
 
 //     private static string BlockPath(string fileName) => $"{BlockFolder}{fileName}";
 
 //     private static string PagePartialPath(string fileName) => $"{PagePartialsFolder}{fileName}";
 // }
-

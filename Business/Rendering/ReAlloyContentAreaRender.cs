@@ -11,8 +11,8 @@ public class ReAlloyContentAreaRender : ContentAreaRenderer
         ContentAreaItem contentAreaItem)
     {
         var baseItemCssClass = base.GetContentAreaItemCssClass(htmlHelper, contentAreaItem);
-        var baseTag = base.GetContentAreaItemHtmlTag(htmlHelper, contentAreaItem);
-        return $"block {baseItemCssClass} {GetTypeSpecificCssClasses(contentAreaItem)} {GetCssClassForTag(baseTag)}";
+        var baseTag = GetContentAreaItemTemplateTag(htmlHelper, contentAreaItem);
+        return $"block {baseItemCssClass} {GetTypeSpecificCssClasses(contentAreaItem)} {GetCssClassForTag(baseTag)} {baseTag}";
     }
     /// <summary>
     /// Gets a CSS class used for styling based on a tag name (ie a Bootstrap class name)

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <languages>
   <language name="English" id="en">
-    <displayoptions>
-      <full>Full</full>
-      <wide>Wide</wide>
-      <half>Half</half>
-      <narrow>Narrow</narrow>
-    </displayoptions>
   </language>
 </languages>
