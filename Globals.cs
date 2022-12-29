@@ -9,7 +9,7 @@ public static class Globals
     {
         [Display(Name = "Default", Order = 2)]
         public const string Default = "Default";
-
+        public const string SiteSettings = "SiteSettings";
         [Display(Name = "Metadata", Order = 3)]
         public const string MetaData = "Metadata";
         [Display(Name = "Specialized", Order = 7)]

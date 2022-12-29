@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <languages>
   <language name="English" id="en">
+    <footer>
+      <products>Products</products>
+      <company>The Company</company>
+      <news>News &amp; Events</news>
+      <customerzone>Customer Zone</customerzone>
+    </footer>
   </language>
 </languages>

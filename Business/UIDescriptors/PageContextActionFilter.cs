@@ -47,6 +47,10 @@ public class PageContextActionFilter : IResultFilter
             model.Layout = new LayoutModel
             {
                 LogoType = startPage.SiteLogoType,
+                ProductPages = startPage.ProductPageLinks,
+                CompanyInformationPages = startPage.CompanyInformationPageLinks,
+                NewsPages = startPage.NewsPageLinks,
+                CustomerZonePages = startPage.CustomerZonePageLinks,
                 LogoTypeLinkUrl = new HtmlString(_urlResolver.GetUrl(startPageContentLink)),
                 IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
             };
