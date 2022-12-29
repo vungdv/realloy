@@ -1,0 +1,25 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  realloy:
+    image: realloy
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5001:80
+  seq:
+    image: datalust/seq
+    ports:
+    - "5341:80"
+    environment:
+      - ACCEPT_EULA=Y
+  mssql:
+    image:  mcr.microsoft.com/azure-sql-edge
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
