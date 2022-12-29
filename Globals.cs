@@ -4,11 +4,12 @@ namespace realloy;
 
 public static class Globals
 {
-    [GroupDefinitions]
+    // [GroupDefinitions]
     public static class GroupNames
     {
         [Display(Name = "Default", Order = 2)]
         public const string Default = "Default";
+        public const string Products = "Products";
         public const string SiteSettings = "SiteSettings";
         [Display(Name = "Metadata", Order = 3)]
         public const string MetaData = "Metadata";
