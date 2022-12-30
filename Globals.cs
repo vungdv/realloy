@@ -28,7 +28,10 @@ public static class Globals
         public const string NarrowWidth = "narrow";
         public const string NoRenderer = "norenderer";
     }
-
+    public static class SiteUIHints
+    {
+        public const string StringsCollection = "StringsCollection";
+    }
     /// <summary>
     /// Virtual path to folder with static graphics, such as "/gfx"
     /// </summary>

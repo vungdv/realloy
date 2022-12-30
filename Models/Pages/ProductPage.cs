@@ -16,4 +16,10 @@ public class ProductPage : StandardPage, IHasRelatedContent
         allowedTypes: new[] { typeof(IContentData) },
         restrictedTypes: new[] { typeof(JumbotronBlock) })]
     public virtual ContentArea RelatedContentArea { get; set; }
+
+    [Required]
+    [Display(Order = 305)]
+    [UIHint(Globals.SiteUIHints.StringsCollection)]
+    [CultureSpecific]
+    public virtual IList<string> UniqueSellingPoints { get; set; }
 }
