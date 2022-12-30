@@ -1,6 +1,6 @@
 @model PageViewModel<ProductPage>
 
-@{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+@{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
 
 <div class="content">
     <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
@@ -11,3 +11,17 @@
 </div>
 
 @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row" })
+
+@section RelatedContent
+{
+    <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
+        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
+    </div>
+
+    <div class="block colorBox @string.Join(" ", @Model.CurrentPage.GetThemeCssClassNames())">
+        <h2 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h2>
+        @* @Html.PropertyFor(x => x.CurrentPage.UniqueSellingPoints) *@
+    </div>
+
+    @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { Aside = true })
+}
