@@ -11,7 +11,7 @@ public class ProductPage : StandardPage, IHasRelatedContent
     [Display(
         Name = "Related Content Area",
         GroupName = SystemTabNames.Content,
-        Order = 310)]
+        Order = 330)]
     [AllowedTypes(
         allowedTypes: new[] { typeof(IContentData) },
         restrictedTypes: new[] { typeof(JumbotronBlock) })]
