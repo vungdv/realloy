@@ -1,6 +1,7 @@
 using EPiServer.Web;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace realloy.Extensions;
 
@@ -16,5 +17,9 @@ public static class ViewContextExtension
     {
         var mode = viewContext.HttpContext.RequestServices.GetRequiredService<IContextModeResolver>().CurrentMode;
         return mode is ContextMode.Edit or ContextMode.Preview;
+    }
+
+    public static bool IsAside<TModel>(this ViewDataDictionary<TModel> viewData){
+        return viewData["Aside"] != null && (bool)viewData["Aside"];
     }
 }
